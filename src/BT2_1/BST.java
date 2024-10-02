@@ -82,7 +82,7 @@ public class BST<T extends Comparable<T>> implements TreeADT<T> {
         return children;
     }
 
-    public Node rotateRight(Node<T> parent) {
+    public Node     rotateRight(Node<T> parent) {
         if (parent == null || parent.getLeft() == null) return null;
 
         Node<T> children = parent.getLeft();

@@ -127,7 +127,7 @@ public class AVLT<T extends Comparable<T>> {
             Node<T> max = findMin(node.right);
             node.value = max.value;
             node.right = remove(max.value, node.right);
-            node.height = Math.max(height(node.left), height(node.right) + 1);
+            node.height = Math.max(height(node.left), height(node.right)) + 1;
             return node;
         }
 
@@ -139,7 +139,7 @@ public class AVLT<T extends Comparable<T>> {
             node.right = remove(value, node.right);
         }
 
-        node.height = Math.max(height(node.left), height(node.right) + 1);
+        node.height = Math.max(height(node.left), height(node.right)) + 1;
         return rotate(node);
     }
 
@@ -158,7 +158,7 @@ public class AVLT<T extends Comparable<T>> {
     private Node<T> rotate(Node<T> node) {
         if (height(node.left) - height(node.right) > 1) {
             // left heavy
-            if (height(node.left.left) - height(node.left.right) > 0) {
+            if (height(node.left.left) - height(node.left.right) >= 0) {
                 // left left case
                 return rightRotate(node);
             }
@@ -171,7 +171,7 @@ public class AVLT<T extends Comparable<T>> {
 
         if (height(node.left) - height(node.right) < -1) {
             // right heavy
-            if (height(node.right.left) - height(node.right.right) < 0) {
+            if (height(node.right.left) - height(node.right.right) <= 0) {
                 // right right case
                 return leftRotate(node);
             }

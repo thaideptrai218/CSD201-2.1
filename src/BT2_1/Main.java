@@ -62,5 +62,6 @@ public class Main {
         tree.f4();
         TreePrinter.print(tree.root);
         tree.breadthFirstSearch();
+
     }
 }
